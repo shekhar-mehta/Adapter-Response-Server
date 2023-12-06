@@ -56,9 +56,9 @@ app.post('/api/postData', (req, res) => {
 });
 
 // Load SSL certificates
-const privateKey = fs.readFileSync('private-key.pem', 'utf8');
-const certificate = fs.readFileSync('public-cert.pem', 'utf8');
-const credentials = { key: privateKey, cert: certificate };
+// const privateKey = fs.readFileSync('private-key.pem', 'utf8');
+// const certificate = fs.readFileSync('public-cert.pem', 'utf8');
+// const credentials = { key: privateKey, cert: certificate };
 
 // Create an HTTPS server
 const httpsServer = https.createServer(credentials, app);
