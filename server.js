@@ -7,21 +7,7 @@ const app = express();
 const PORT = 3001;
 
 // Enable CORS for all routes
-const allowedOrigins = ['http://localhost:5500'];
-
-// Enable CORS with custom options
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
-}));
+app.use(cors());
 
 // Parse JSON requests
 app.use(express.json());
@@ -61,9 +47,9 @@ app.post('/api/fakeResponse', (req, res) => {
   }
 
   // Set CORS headers
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'OPTIONS, POST, GET');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  // res.header('Access-Control-Allow-Origin', '*');
+  // res.header('Access-Control-Allow-Methods', 'OPTIONS, POST, GET');
+  // res.header('Access-Control-Allow-Headers', 'Content-Type');
 
   // Respond with a JSON object
   res.json(resp);
