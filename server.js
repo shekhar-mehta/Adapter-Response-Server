@@ -7,7 +7,21 @@ const app = express();
 const PORT = 3001;
 
 // Enable CORS for all routes
-app.use(cors());
+const allowedOrigins = ['http://localhost:5500'];
+
+// Enable CORS with custom options
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
+}));
 
 // Parse JSON requests
 app.use(express.json());
