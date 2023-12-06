@@ -7,7 +7,25 @@ const app = express();
 const PORT = 3001;
 
 // Enable CORS for all routes
-app.use(cors());
+// Enable CORS for all routes
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+
+    // Specify the allowed origin(s)
+    const allowedOrigins = ['http://127.0.0.1:5500', 'https://your-other-allowed-origin.com'];
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
+}));
 
 // Parse JSON requests
 app.use(express.json());
