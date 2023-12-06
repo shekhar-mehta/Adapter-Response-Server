@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HB2 Test</title>
+    <!--HB Tag-->
+    <script>
+        window.googletag = window.googletag || {};
+        window.googletag.cmd = window.googletag.cmd || [];
+    </script>
+    <script>
+        function loadScript(src, id) {
+            var script = document.createElement('script');
+            script.src = src;
+            if (id) {
+                script.id = id;
+            }
+            document.head.appendChild(script);
+        }
+
+        function loadGPTScript() {
+            loadScript('https://securepubads.g.doubleclick.net/tag/js/gpt.js', 'gpt-script');
+        }
+
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/4312434/consumer/webmd_4", [[300, 250],[300,600]], "shekhar-banner")
+                .setTargeting("pos", "137")
+                .addService(googletag.pubads());
+            googletag.defineSlot("/4312434/consumer/webmd_3", [[300, 250], [300,600]], "shekhar-banner+outstream")
+                .setTargeting("pos", "121")
+                .addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+
+            googletag.display('shekhar-banner');
+        });
+    </script>
+    <script src="https://hbx.media.net/bidexchange.js?cid=8YHBP05IA&version=5.1&dn=www.webmd.com" onload="loadGPTScript()"></script>
+    <style>
+        #shekhar-instream{
+            display: block;
+            width: 640px;
+            height: 480px;
+            margin: auto auto;
+            border: 1px solid black;
+        }
+        #shekhar-banner{
+            display: block;
+            width: 300px;
+            height: 600px;
+            margin: auto auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+<div id="shekhar-banner"></div>
+<div id="shekhar-banner+outstream"></div>
+<!--<div id="shekhar-instream"></div>-->
+
+</body>
+
+</html>

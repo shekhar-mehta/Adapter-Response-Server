@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publisher Page</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+        }
+
+        #test{
+            background-color: white;
+            width: 800px;
+            height: 800px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script type="text/javascript">
+
+        // Immediately Invoked Function Expression
+        (function() {
+
+            // Initialize HB setup variables
+            window.advBidxc = window.advBidxc || {};
+            window.advBidxc.timeout = 1e3;
+            window.advBidxc.customerId = "8YHBN4BN8";
+            window.advBidxc.domain = "sports.yahoo.com";
+            window.advBidxc.pageUrl="https://sports.yahoo.com"
+            window.advBidxc.version = 12.1;
+            window.advBidxc.startTime = new Date().getTime();
+            window.advBidxc.limitedAds = false; //TRUE/FALSE
+            var yahooTgts = {
+                section: "main", // change from ysec to section
+                region: "US", // change from yr to region
+                lang: "en-US", // change from ylang to lang
+                site: "sports", // change from ys to site
+                device: "desktop", // change from ydt to device
+            };
+            window.advBidxc.pub = yahooTgts;
+
+            function loadScript(tagSrc) {
+                var scriptTag = document.createElement('script'),
+                    placeTag = document.getElementsByTagName("script")[0];
+                scriptTag.type = 'text/javascript';
+                scriptTag.async = true;
+                scriptTag.src = tagSrc;
+                placeTag.parentNode.insertBefore(scriptTag, placeTag);
+            }
+            var stdGPT = '//securepubads.g.doubleclick.net/tag/js/gpt.js';
+            var ltdGPT = '//pagead2.googlesyndication.com/tag/js/gpt.js';
+            // loads Google's GAM API (gpt.js) for finalizing auction on GAM
+            function loadGPT() {
+                if (!window.advBidxc.isAdServerLoaded) {
+                    if (window.advBidxc.limitedAds) {
+                        loadScript(ltdGPT);
+                    } else {
+                        loadScript(stdGPT);
+                    }
+                    window.advBidxc.isAdServerLoaded = true;
+                }
+            }
+            // Set timeout for loading GAM's API gpt.js
+            window.advBidxc.loadGPT = setTimeout(loadGPT, window.advBidxc.timeout);
+
+            var yhDn =  'hb.yahoo.net';
+
+            // Load the primary HB script
+            var yhSrc = 'https://' + yhDn + '/bidexchange.js?'
+                + 'cid=' + window.advBidxc.customerId
+                + "&version=" + window.advBidxc.version
+                + '&dn=' + window.advBidxc.domain
+                + '&ysection=' + encodeURIComponent(yahooTgts.section)
+                + '&yregion=' + encodeURIComponent(yahooTgts.region)
+                + '&ylang=' + encodeURIComponent(yahooTgts.lang)
+                + '&ysite=' + encodeURIComponent(yahooTgts.site)
+                + '&ydevice=' + encodeURIComponent(yahooTgts.device);
+            loadScript(yhSrc);
+            console.log(yhSrc)
+        })();
+
+        var googletag = window.googletag || {};
+        googletag.cmd = googletag.cmd || [];
+
+        googletag.cmd.push(function() {
+            var slots= [ googletag.defineSlot("/22888152279/us/ysports/main/dt/us_ysports_main_dt_top_center", [[728, 90],[970, 250]], 'top_center').addService(googletag.pubads())];
+
+            // Disable initial load to precisely control when ads are requested.
+            googletag.pubads().disableInitialLoad();
+
+            // Enable SRA
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+            googletag.pubads().refresh(slots);
+        });
+    </script>
+</head>
+<body>
+
+<div id="test">
+    <div id="top_center">
+        <script>
+            googletag.cmd.push(function() {
+                googletag.display('top_center');
+            });
+        </script>
+    </div>
+</div>
+</body>
+</html>
