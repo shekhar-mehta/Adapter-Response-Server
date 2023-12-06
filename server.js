@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Define the POST endpoint
-app.post('/api/postData', (req, res) => {
+app.post('/api/fakeResponse', (req, res) => {
   const requestData = req.body;
 
   console.log(requestData);
@@ -47,8 +47,8 @@ app.post('/api/postData', (req, res) => {
   }
 
   // Set CORS headers
-  res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500/kargoTestPage.html');
-  res.header('Access-Control-Allow-Methods', 'OPTIONS, POST');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'OPTIONS, POST, GET');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
 
   // Respond with a JSON object
@@ -61,9 +61,9 @@ app.post('/api/postData', (req, res) => {
 // const credentials = { key: privateKey, cert: certificate };
 
 // Create an HTTPS server
-const httpsServer = https.createServer(credentials, app);
+// const httpsServer = https.createServer(credentials, app);
 
 // Start the server
-httpsServer.listen(PORT, () => {
-  console.log(`Server is running on https://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
